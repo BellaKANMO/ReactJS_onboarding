@@ -1,0 +1,284 @@
+.head{
+    background-color: beige;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.head {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.intro-text {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.gallery-section {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-container {
+  margin-bottom: 30px;
+}
+
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px 10px;
+  gap: 20px;
+  scrollbar-width: none;
+  margin-bottom: 20px;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 400px;
+  scroll-snap-align: start;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-item.active {
+  border: 3px solid #9b59b6;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 20px 15px 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-overlay h3 {
+  font-size: 1.2rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.gallery-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.nav-btn {
+  background: #9b59b6;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+
+.nav-btn:hover {
+  background: #8e44ad;
+  transform: scale(1.1);
+}
+
+.gallery-indicators {
+  display: flex;
+  gap: 10px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bdc3c7;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background-color: #9b59b6;
+  transform: scale(1.3);
+}
+
+.indicator:hover {
+  background-color: #9b59b6;
+}
+
+.image-counter {
+  text-align: center;
+  font-weight: 600;
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+.image-details {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 15px;
+  border-left: 5px solid #9b59b6;
+}
+
+.image-details h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  font-size: 1.8rem;
+}
+
+.image-details p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 15px;
+  }
+  
+  .head {
+    font-size: 2rem;
+  }
+  
+  .gallery-section {
+    padding: 20px;
+  }
+  
+  .gallery-item {
+    width: 250px;
+    height: 350px;
+  }
+  
+  .gallery-controls {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .image-details {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .head {
+    font-size: 1.6rem;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+  }
+  
+  .gallery-item {
+    width: 220px;
+    height: 300px;
+  }
+  
+  .nav-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+  
+  .image-details h2 {
+    font-size: 1.5rem;
+  }
+  
+  .image-details p {
+    font-size: 1rem;
+  }
+}
+
+/* .lock{
+    height: 220px;
+    width: 325px;
+    align-items: center;
+}
+
+.body{
+    background-color: rgb(97, 79, 114);
+}
+
+p{
+    color: aliceblue;
+} */
+
+/* 
+li {
+  display: flex;
+  align-items: center; 
+  gap: 10px; 
+  margin-bottom: 20px;
+}
+
+li img {
+  width: 150px;  
+  height: auto;   
+  border-radius: 10px; 
+  margin-top: 10px;
+} */
