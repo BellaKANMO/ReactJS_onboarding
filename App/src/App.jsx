@@ -32,13 +32,21 @@ const pics =[
    id:6,
    name : "unamable",
    reason : "I feel like i'm searching for my wadding dress and when i think i found it, it's blurry aaaarhg"},
+  {imageUrl: "./images/love_purple.jpg",
+   id:7,
+   name : "love_purple",
+   reason : "Everything here describes me, don't you think so ? My favourite color (purple), the color of my soul (gold) but... I dare you to guest..."},
+  {imageUrl: "./images/unamable.jpg",
+   id:8,
+   name : "unamable",
+   reason : "I feel like i'm searching for my wadding dress and when i think i found it, it's blurry aaaarhg"},
   ]
 
-function getUrl(pic){
-  return(
-    pic.imageUrl
-  )
-}
+// function getUrl(pic){
+//   return(
+//     pic.imageUrl
+//   )
+// }
 
 // function App() {
 //   const picsItems = pics.map(pic => 
@@ -71,14 +79,14 @@ function App() {
 
   const goToPrevious = () => {
     const isFirstImage = currentIndex === 0;
-    const newIndex = isFirstImage ? pics.length - 1 : currentIndex - 1;
+    const newIndex = isFirstImage ? 0 : currentIndex - 1;
     setCurrentIndex(newIndex);
     scrollToImage(newIndex);
   };
 
   const goToNext = () => {
     const isLastImage = currentIndex === pics.length - 1;
-    const newIndex = isLastImage ? 0 : currentIndex + 1;
+    const newIndex = isLastImage ? pics.length - 1 : currentIndex + 1;
     setCurrentIndex(newIndex);
     scrollToImage(newIndex);
   };
@@ -117,7 +125,7 @@ function App() {
       gallery.addEventListener('scroll', handleScroll);
       return () => gallery.removeEventListener('scroll', handleScroll);
     }
-  }, []);
+  }, [currentIndex]);
 
   return (
     <div className="app-container">
