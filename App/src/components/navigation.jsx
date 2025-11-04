@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState, useRef} from 'react';
 
 export default function Navigation(pics) {
  const [currentIndex, setCurrentIndex] = useState(0);

@@ -7,7 +7,7 @@ import { Navigation } from './components/navigation.jsx';
 
 
 function App() {
-  
+  <pics />
   return (
     <div className="app-container">
       <Header />
